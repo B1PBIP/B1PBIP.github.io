@@ -79,9 +79,10 @@ sortedLetters.forEach(letter => {
   );
 
   groups[letter].forEach(link => {
-    const newLink = link.cloneNode(true);
-    section.appendChild(newLink);
-  });
+  const newLink = link.cloneNode(true);
+  section.appendChild(newLink);
+  section.appendChild(document.createElement("br"));
+});
 
   container.appendChild(section);
 });
