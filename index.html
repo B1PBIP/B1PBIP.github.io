@@ -93,10 +93,29 @@ function filterSections() {
   const sections = document.querySelectorAll(".carte");
 
   sections.forEach(section => {
-    const text = section.textContent.toLowerCase();
-    section.style.display = text.includes(input) ? "" : "none";
+    const links = section.querySelectorAll("a");
+    let visibleLinks = 0;
+
+    links.forEach(link => {
+      const text = link.textContent.toLowerCase();
+
+      if (text.includes(input)) {
+        link.style.display = "block";
+        visibleLinks++;
+      } else {
+        link.style.display = "none";
+      }
+    });
+
+    // cacher la section si aucun lien visible
+    if (visibleLinks === 0) {
+      section.style.display = "none";
+    } else {
+      section.style.display = "";
+    }
   });
 }
+
 </script>
 
 <footer>
